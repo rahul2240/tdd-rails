@@ -13,8 +13,23 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  fixtures :users
+  subject { build(:user) }
   it "should be a valid user" do
-    expect(users(:rahul)).to be_valid
+    expect(subject).to be_valid
+  end
+
+  it "is not valid without a name" do
+    subject.name = ''
+    expect(subject).not_to be_valid
+  end
+
+  it "is not valid without an email" do
+    subject.email = ''
+    expect(subject).not_to be_valid
+  end
+
+  it "is not valid without a proper email" do
+    subject.email = '123@'
+    expect(subject).not_to be_valid
   end
 end
