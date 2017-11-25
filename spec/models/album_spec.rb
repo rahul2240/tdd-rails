@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: albums
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  title      :string
+#
+
 require 'rails_helper'
 
 RSpec.describe Album do
