@@ -15,6 +15,7 @@ RSpec.describe Album do
   subject { build(:album) }
 
   it "is not vaild without a title" do
+    subject.title=''
     expect(subject).not_to be_valid
   end
 
