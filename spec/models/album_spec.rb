@@ -11,6 +11,8 @@
 require 'rails_helper'
 
 RSpec.describe Album do
+
+  fixtures :albums
   subject { Album.new }
 
   it "title should be present" do
@@ -20,5 +22,9 @@ RSpec.describe Album do
   it "title should not be too long" do
     subject.title =  "a"* 101
     expect(subject).not_to be_valid
+  end
+
+  it "should be valid with valid data" do
+    expect(albums(:disk)).to be_valid
   end
 end
