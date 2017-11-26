@@ -1,6 +1,6 @@
 FactoryBot.define do
 
   factory :album do
-    title 'The Game'
+    title Faker::Book.title
   end
 end

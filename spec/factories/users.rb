@@ -4,8 +4,8 @@ FactoryBot.define do
     transient do
       upcase true
     end
-    name 'Rahul'
-    sequence(:email, 10) { |n| "user#{n}@gmail.com" }
+    name Faker::Name.name
+    email { Faker::Internet.email(name) }
 
     after(:build) do |user, evaluator|
       user.email.upcase! if evaluator.upcase
